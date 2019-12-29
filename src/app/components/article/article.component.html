@@ -1,0 +1,7 @@
+<ion-card>
+      <ion-img *ngIf="article.urlToImage" [src]="article.urlToImage"></ion-img>
+      <ion-card-content>
+         <ion-card-title>{{article.title}}</ion-card-title>
+        <p> {{article.description}}</p>
+      </ion-card-content>
+   </ion-card>

@@ -7,13 +7,23 @@ import { IonicModule } from '@ionic/angular';
 import { TopNewsPageRoutingModule } from './top-news-routing.module';
 
 import { TopNewsPage } from './top-news.page';
+import { ComponentsModule } from './../components/components.module';
+import { Routes, RouterModule } from '@angular/router';
+
+const routes: Routes = [
+  {
+    path: '',
+    component: TopNewsPage
+  }
+];
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    TopNewsPageRoutingModule
+    RouterModule.forChild(routes),
+    ComponentsModule
   ],
   declarations: [TopNewsPage]
 })

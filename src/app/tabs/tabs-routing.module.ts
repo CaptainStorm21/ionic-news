@@ -55,14 +55,14 @@ const routes: Routes = [
       {
         path: '',
         redirectTo: '/tabs/top-news',
-        pathMatch: 'full'
+        pathMatch: ''
       }
     ]
   },
   {
     path: '',
     redirectTo: '/tabs/top-news',
-    pathMatch: 'full'
+    pathMatch: ''
   }
 ];
 

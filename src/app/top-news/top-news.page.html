@@ -1,9 +1,28 @@
 <ion-header>
-  <ion-toolbar>
-    <ion-title>top-news</ion-title>
-  </ion-toolbar>
-</ion-header>
-
-<ion-content>
-
+    <ion-toolbar>
+       <ion-title>top-news</ion-title>
+    </ion-toolbar>
+ </ion-header>
+ <ion-content padding>
+<app-articles [news]="news" ></app-articles>
 </ion-content>
+
+<!-- 
+ <ion-content padding>
+    <ion-grid fixed>
+       <ion-row>
+          <ion-col size=12 size-lg=3 size-md=4 size-sm=6  *ngFor="let item of (news | async)?.articles"> -->
+               <!-- <ion-col size=12 size-lg=3 size-md=4 size-sm=6  *ngFor="let item of news?.articles"> -->
+              <!--<ion-card>
+                <ion-img *ngIf="item.urlToImage" [src]="item.urlToImage"></ion-img>
+                <ion-card-content>
+                  <ion-card-title  color="secondary" >
+                     {{item.title}}
+                  </ion-card-title>
+                   
+                </ion-card-content>
+             </ion-card>
+          </ion-col>
+       </ion-row>
+    </ion-grid>
+   </ion-content> -->

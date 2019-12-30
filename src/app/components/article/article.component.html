@@ -1,7 +1,15 @@
 <ion-card>
       <ion-img *ngIf="article.urlToImage" [src]="article.urlToImage"></ion-img>
+      <ion-item>
+         <ion-icon name = "calendar" slot="start"></ion-icon>
+         <ion-label> {{ article.publishedAt | date:'short' }}</ion-label>
+      </ion-item>
       <ion-card-content>
          <ion-card-title>{{article.title}}</ion-card-title>
         <p> {{article.description}}</p>
       </ion-card-content>
+
+      <ion-item text-right color="secondary">
+         <ion-label> {{ article.source.name}} </ion-label>
+      </ion-item>
    </ion-card>

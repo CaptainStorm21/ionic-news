@@ -1,8 +1,10 @@
-import { Injectable } from '@angular/core';
+
 // api hooks
 import { environment } from '../../environments/environment';
 import { HttpClient, HttpParams} from '@angular/common/http';
-import { LoadingController } from '@ionic/angular';
+import {Injectable} from '@angular/core';
+import {LoadingController} from '@ionic/angular';
+import { tap} from 'rxjs/operators';
 
 const apiKey = environment.apiKey;
 const apiUrl = environment.apiUrl;
@@ -14,20 +16,45 @@ const params = new HttpParams().set('apiKey', apiKey);
   providedIn: 'root'
 })
 export class NewsService {
+  loading;
+  constructor(
+    private http: HttpClient,
+    public loadingController: LoadingController
+  ) {}
 
-  constructor(private http: HttpClient, public loadingController:  LoadingController  ) { }
-
-  async showLoading(){
-    const loading = await this.loadingController.create({
-      duration: 3000
+  async showLoading() {
+    this.loading = await this.loadingController.create({
+      duration: 5000
     });
 
-    return await loading.present();
-  }
+    return await this.loading.present();
+ }
+    // spinner stops by a timer not but not after content loads
+    // async showLoading(){
+    //   const loading = await this.loadingController.create({
+    //     duration: 3000
+    //   });
 
-  getData(url){
+    //   return await loading.present();
+ 
+
+  getData(url) {
     this.showLoading();
     // return this.http.get(`${apiUrl}/${url}apiKey=${apiKey}`);
-    return this.http.get(`${apiUrl}/${url}`, { params });
+
+    // spinner stops by a timer not but not after content loads
+    // return this.http.get(`${apiUrl}/${url}`, { params });
+
+    //  testing in console
+    // return this.http.get(`${apiUrl}/${url}`, { params }).pipe(tap(value => {
+    //   console.log(value);
+    // }));
+
+    return this.http.get(`${apiUrl}/${url}`, { params }).pipe(
+      tap(value => {
+        this.loading.dismiss();
+        console.log(value);
+      })
+    );
   }
 }

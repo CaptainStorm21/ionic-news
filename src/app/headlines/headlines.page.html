@@ -1,9 +1,23 @@
 <ion-header>
-  <ion-toolbar>
+  <ion-toolbar color="primary">
     <ion-title>headlines</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
+<ion-content padding>
+  <ion-grid>
+    <ion-row>
+      <ion-col>
+        <ion-slides>
+          <ion-slide padding>
+              <ion-chip color="primary"  *ngFor = "let category of categories">
+                  <ion-label>{{ category }}</ion-label>
+                </ion-chip>
+          </ion-slide>
 
+        </ion-slides>
+
+      </ion-col>
+    </ion-row>
+  </ion-grid>
 </ion-content>

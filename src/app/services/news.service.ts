@@ -24,7 +24,7 @@ export class NewsService {
 
   async showLoading() {
     this.loading = await this.loadingController.create({
-      duration: 5000
+      duration: 10000
     });
 
     return await this.loading.present();

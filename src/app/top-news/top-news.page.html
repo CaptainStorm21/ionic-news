@@ -4,6 +4,9 @@
     </ion-toolbar>
  </ion-header>
  <ion-content padding>
+    <ion-refresher slot="fixed" (ionRefresher)="onRefresh($event)">
+
+    </ion-refresher>
 <app-articles [news]="news" ></app-articles>
 </ion-content>
 

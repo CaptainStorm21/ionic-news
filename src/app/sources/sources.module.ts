@@ -7,13 +7,15 @@ import { IonicModule } from '@ionic/angular';
 import { SourcesPageRoutingModule } from './sources-routing.module';
 
 import { SourcesPage } from './sources.page';
+import { PipesModule } from './../pipes/pipes.module';
 
 @NgModule({
   imports: [
-    CommonModule,
+  CommonModule,
     FormsModule,
     IonicModule,
-    SourcesPageRoutingModule
+    SourcesPageRoutingModule,
+    PipesModule
   ],
   declarations: [SourcesPage]
 })

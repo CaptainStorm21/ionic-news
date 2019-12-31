@@ -13,7 +13,10 @@
        <ion-row>
           <ion-col size=12 size-lg=3 size-md=12 size-sm=12  *ngFor="let article of (news | async)?.articles">
             <app-article [article]="article"></app-article>
-
+          </ion-col>
+       </ion-row>
+    </ion-grid>
+   </ion-content>
 
             <!-- <ion-card>
                <ion-img *ngIf="article.urlToImage" [src]="article.urlToImage"></ion-img>
@@ -22,7 +25,4 @@
                  <p> {{article.description}}</p>
                </ion-card-content>
             </ion-card> -->
-          </ion-col>
-       </ion-row>
-    </ion-grid>
-   </ion-content>
+

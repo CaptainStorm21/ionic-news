@@ -4,16 +4,25 @@ import { FormsModule } from '@angular/forms';
 
 import { IonicModule } from '@ionic/angular';
 
-import { HeadlinesPageRoutingModule } from './headlines-routing.module';
 
 import { HeadlinesPage } from './headlines.page';
+import { Routes, RouterModule } from '@angular/router';
+import { ComponentsModule } from '../components/components.module';
+
+const routes: Routes = [
+  {
+    path: '',
+    component: HeadlinesPage
+  }
+];
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    HeadlinesPageRoutingModule
+    RouterModule.forChild(routes),
+    ComponentsModule
   ],
   declarations: [HeadlinesPage]
 })

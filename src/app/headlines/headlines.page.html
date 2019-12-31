@@ -4,14 +4,15 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content padding>
+<ion-content  class="ion-padding">
   <ion-grid>
     <ion-row>
       <ion-col>
         <ion-slides>
-          <ion-slide padding>
-              <ion-chip color="primary"  *ngFor = "let category of categories">
-                  <ion-label>{{ category }}</ion-label>
+          <ion-slide>
+              <ion-chip class="full-width-select" *ngFor = "let category of categories"
+                       (click)="onGetCategoryData(category)">
+                  <ion-label class="text-label">{{ category }}</ion-label>
                 </ion-chip>
           </ion-slide>
 
@@ -20,4 +21,5 @@
       </ion-col>
     </ion-row>
   </ion-grid>
+  <app-articles [news]="news"></app-articles>
 </ion-content>

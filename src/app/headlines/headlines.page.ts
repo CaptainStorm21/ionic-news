@@ -8,14 +8,22 @@ import { NewsService } from './../services/news.service';
 })
 export class HeadlinesPage implements OnInit {
   news;
-  categories = ['world', 'elections', 'tech', 'food', 'to-do'];
+  categories = ['chernobyl', 'world', 'elections', 'tech', 'food', 'chernobyl'];
   constructor(private newsService: NewsService) { }
 
   ngOnInit() {
+    this.news = this.newsService.getData(
+      `everything?q=${this.categories[0].toLowerCase()}`);
+    this.getCategoryData(this.categories[0]);
   }
 
   onGetCategoryData(category){
     console.log(category.toLowerCase());
-    this.news = this.newsService.getData(`everything?q=${category.toLowerCase()}`);
+    this.getCategoryData(category);
+  }
+
+  getCategoryData(category){
+    this.news = this.newsService.getData(
+      `everything?q=${category.toLowerCase()}`);
   }
 }

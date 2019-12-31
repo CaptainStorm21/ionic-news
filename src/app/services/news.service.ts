@@ -24,7 +24,7 @@ export class NewsService {
 
   async showLoading() {
     this.loading = await this.loadingController.create({
-      duration: 10000
+      duration: 5000
     });
 
     return await this.loading.present();
@@ -39,7 +39,7 @@ export class NewsService {
  
 
   getData(url) {
-    this.showLoading();
+    // this.showLoading();
     // return this.http.get(`${apiUrl}/${url}apiKey=${apiKey}`);
 
     // spinner stops by a timer not but not after content loads
@@ -52,9 +52,9 @@ export class NewsService {
 
     return this.http.get(`${apiUrl}/${url}`, { params }).pipe(
       tap(value => {
-        if(this.loading){
-          this.loading.dismiss();
-        }
+        // if (this.loading){
+        //   this.loading.dismiss();
+        // }
         console.log(value);
       })
     );

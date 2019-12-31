@@ -1,5 +1,14 @@
 
  <ion-content padding>
+    <ion-row *ngIf="!(news | async)">
+       <ion-col size="12" *ngFor = "let article of fakeArticles">
+          <ion-skeleton-text width="35%"> </ion-skeleton-text>
+          <ion-skeleton-text width="70%"> </ion-skeleton-text>
+          <ion-skeleton-text width="100%"> </ion-skeleton-text>
+          <ion-skeleton-text width="85%"> </ion-skeleton-text>
+
+       </ion-col>
+    </ion-row>
     <ion-grid fixed>
        <ion-row>
           <ion-col size=12 size-lg=3 size-md=12 size-sm=12  *ngFor="let article of (news | async)?.articles">
